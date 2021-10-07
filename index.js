@@ -1,14 +1,15 @@
 const express = require('express')
 const path = require('path')
 
-const app = express
+const app = express()
 
-app.length('/', function(req, res) {
+app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, "../index.html"))
 })
 
 
-const port = process.env.PORT || 5050
+const SERVER_PORT = 5050
+const port = process.env.PORT || SERVER_PORT
 app.listen(port, () => {
     console.log(`Server is now live on port ${port}`)
 })
